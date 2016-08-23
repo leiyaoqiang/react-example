@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'React';
+import React, { Component, PropTypes } from 'react';
 
 class Counter extends Component {
 	constructor (props) {
@@ -22,10 +22,22 @@ class Counter extends Component {
 		return (
 			<p>
 				Clicked: {value} times
-				<button onClick={onIncrement}>+</button>
-				<button onClick={onDecrement}>-</button>
-				<button onClick={this.incrementIfOdd}>Increment if odd</button>
-				<button onClick={this.incrementAsync}>Increment async</button>
+				{' '}
+				<button onClick={onIncrement}>
+					+
+				</button>
+				{' '}
+				<button onClick={onDecrement}>
+					-
+				</button>
+				{' '}
+				<button onClick={this.incrementIfOdd}>
+					Increment If Odd
+				</button>
+				{' '}
+				<button onClick={this.incrementAsync}>
+					Increment Async
+				</button>
 			</p>
 		); 
 	}

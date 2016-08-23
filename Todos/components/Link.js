@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react'
 
-const Link = ({active, children, onClick}) => {
+const Link = ({active, children, filter, onClick}) => {
 	if (active) {
 		return <span>{children}</span>
 	}
 
 	return (
-		<a href="javascrip:void(0)",
+		<a href="javascrip:void(0)"
 			onClick={(e) => {
 				e.preventDefault();
-				onClick();
+				onClick(filter);
 			}}
 		>
 			{children}

@@ -1,11 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
-import Counter from './Counter/Counter.js'
-import counter from './Counter/reducers/index.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import Counter from './Counter/Counter.js';
+import counter from './Counter/reducers/index.js';
 
-const store = createStore(counter)
-const rootEl = document.getElementById('root')
+const store = createStore(counter);
+const rootEl = document.getElementById('root');
 
 function render() {
   ReactDOM.render(
@@ -18,5 +18,5 @@ function render() {
   )
 }
 
-render()
-store.subscribe(render)
+render();
+store.subscribe(render);
