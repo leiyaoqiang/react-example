@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
+import Todo from './Todo.js'
 
-const TodoList = ({todos, onTodoClick}) => (
+const TodoList = ({todos, visibilityFilter, onTodoClick}) => (
 	<ul>
-		{todos.map(todo =>
+		{todos.map((todo, index) =>
 			<Todo
-				key = {todos.id}
+				key={index}
 				{...todo}
-				onClick = {() => onTodoClick(todos.id)}
+				onClick={() => onTodoClick(index)}
 			/>
 		)}
 	</ul>
