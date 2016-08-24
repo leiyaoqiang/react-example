@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import Todo from './Todo.js'
 
-const TodoList = ({todos, visibilityFilter, onTodoClick}) => (
+const TodoList = ({todos, onTodoClick}) => (
 	<ul>
 		{todos.map((todo, index) =>
 			<Todo

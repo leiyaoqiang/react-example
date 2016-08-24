@@ -13,7 +13,6 @@ const App = ({todos, visibilityFilter, dispatch}) => (
 		/>
 		<TodoList
 			todos={filterTodos(todos, visibilityFilter)}
-			visibilityFilter={visibilityFilter}
 			onTodoClick={ index => dispatch(toggleTodo(index)) }
 		/>
 		<Footer
