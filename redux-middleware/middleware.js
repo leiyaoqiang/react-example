@@ -131,3 +131,30 @@ const rafScheduler = store => next => {
  		error => next(makeAction(true, { error }))
  	);
  }
+
+ /**
+  * 让你可以发起一个函数来替代 action。
+  * 这个函数接收 `dispatch` 和 `getState` 作为参数。
+  *
+  * 对于（根据 `getState()` 的情况）提前退出，或者异步控制流（ `dispatch()` 一些其他东西）来说，这非常有用。
+  *
+  * `dispatch` 会返回被发起函数的返回值。
+  */
+const thunk = store => next => action =>
+	typeof action === 'function' ?
+		action(store.dispatch, store.getState) :
+		next(action);
+
+// 你可以使用以上全部的 middleware！（当然，这不意味着你必须全都使用。）
+let createStoreWithMiddleware = applyMiddleware(
+	rafScheduler,
+	timeoutScheduler,
+	thunk,
+	vanillaPromise,
+	readyStatePromise,
+	logger,
+	crashReporter
+)(createStore);
+
+let todoApp = combineReducers(reducers);
+let store = createStoreWithMiddleware(todoApp);
