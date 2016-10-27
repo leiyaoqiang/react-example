@@ -10,3 +10,30 @@ export const completeTodo = (id) => {
 		id
 	}
 }
+
+export const completeAll = () => {
+	return {
+		type: types.COMPLETE_ALL
+	}
+}
+
+export const deleteTodo = (id) => {
+	return {
+		type: types.DELETE_TODO,
+		id
+	}
+}
+
+export const clearCompleted = () => {
+	return {
+		type: types.CLEAR_COMPLETED
+	}
+}
+
+export const updateTodo = (id, text) => {
+	return {
+		type: types.UPDATE_TODO,
+		id,
+		text
+	}
+}
