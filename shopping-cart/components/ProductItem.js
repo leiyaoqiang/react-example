@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import Product from './Product'
 
-class ProductItem extends Component {
+export default class ProductItem extends Component {
 	render () {
 		const { product, handleClick } = this.props;
 		let buttonEl;
@@ -12,11 +13,22 @@ class ProductItem extends Component {
 
 		return (
 			<div style={{ marginBottom: 20 }}>
-				<div>{product.title} - ${product.price}</div>
+				<Product
+					title={product.title}
+					price={product.price}
+				/>
 				{buttonEl}
 			</div>
 		)
 	}
 }
 
-export default ProductItem
+ProductItem.propTypes = {
+	product: PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		title: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired,
+		inventory: PropTypes.number.isRequired
+	}),
+	handleClick: PropTypes.func.isRequired
+}

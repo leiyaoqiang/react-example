@@ -22,6 +22,16 @@ class ProductsContainer extends Component {
 	}
 }
 
+ProductsContainer.propTypes = {
+	products: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		price: PropTypes.number.isRequired,
+		title: PropTypes.string.isRequired,
+		inventory: PropTypes.number.isRequired
+	}).isRequired).isRequired,
+	addToCart: PropTypes.func.isRequired
+}
+
 function mapStateToProps (state) {
 	return {
 		products: getVisibleProducts(state.products)

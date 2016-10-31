@@ -30,3 +30,20 @@ export const getAllProducts = () => {
 		})
 	}
 }
+
+export const checkout = (products) => {
+	return (dispatch, getState) => {
+		const cart = getState().cart;
+
+		dispatch({ type: types.CHECKOUT_REQUEST });
+		api.buyProducts(products, () => {
+			// dispatch({
+			// 	type: types.CHECKOUT_SUCCESS,
+			// 	cart
+			// })
+
+			// Replace the line above with the line blowe to rollback on failure.
+			dispatch({ type: types.CHECKOUT_FAILURE, cart })
+		})
+	}
+}
